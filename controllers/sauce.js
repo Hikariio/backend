@@ -67,88 +67,9 @@ exports.deleteSauce = (req, res, next) => {
 }
 
 exports.likeSauce = (req, res, next) => {
-    // Sauce.findOne({ _id: req.params.id })
-    // .then(sauce => {
-    //     switch (req.body.like) {
-    //         case 1:
-    //             sauce.usersLiked.forEach(user => {
-    //                 if(user === req.body.userId){
-    //                     return res.status(200).json({message: 'Sauce déjà liké'});
-    //                 };
-    //             });
-    //             sauce.usersDisliked.forEach(function(user, index, object){
-    //                 if(user === req.body.userId){
-    //                     sauce.likes++;
-    //                     sauce.dislikes--;
-    //                     sauce.usersLiked.push(req.body.userId);
-    //                     sauce.usersDisliked.splice(index, 1);
-                        // sauce.save()
-                        // .then(() => res.status(200).json({message: 'Ajout du like + Suppression du dislike'}))
-                        // .catch(error => res.status(400).json({ error }))
-    //                 };
-    //             });
-    //             sauce.likes++;
-    //             sauce.usersLiked.push(req.body.userId);
-    //             sauce.save()
-    //             .then(() => res.status(200).json({message: 'Ajout du like'}))
-    //             .catch(error => res.status(400).json({ error }))
-    //             break;
-    //         case 0:
-    //             sauce.usersLiked.forEach(function(user, index, object){
-    //                 if(user == req.body.userId){
-    //                     sauce.likes--;
-    //                     sauce.usersLiked.splice(index, 1);
-    //                     sauce.save()
-    //                     .then(() => res.status(200).json({message: 'Suppression du like'}))
-    //                     .catch(error => res.status(400).json({ error }))
-    //                 };
-    //             });
-    //             sauce.usersDisliked.forEach(function(user, index, object){
-    //                 if(user == req.body.userId){
-    //                     sauce.dislikes--;
-    //                     sauce.usersDisliked.splice(index, 1);
-    //                     sauce.save()
-    //                     .then(() => res.status(200).json({message: 'Suppression du dislike'}))
-    //                     .catch(error => res.status(400).json({ error }))
-    //                 };
-    //             });
-
-    //             res.status(200).json({message: 'Initialisation'});
-    //             break;
-    //         case -1:
-    //             sauce.usersLiked.forEach(function(user, index, object){
-    //                 if(user == req.body.userId){
-    //                     sauce.likes--;
-    //                     sauce.dislikes++;
-    //                     sauce.usersDisliked.push(req.body.userId);
-    //                     sauce.usersLiked.splice(index, 1);
-    //                     sauce.save()
-    //                     .then(() => res.status(200).json({message: 'Ajout du dislike + Suppression du like'}))
-    //                     .catch(error => res.status(400).json({ error }))
-    //                 };
-    //             });
-    //             sauce.usersDisliked.forEach(user => {
-    //                 if(user == req.body.userId){
-    //                     res.status(200).json({message: 'Sauce déjà disliké'});
-    //                 };
-    //             });
-    //             sauce.dislikes++;
-    //             sauce.usersDisliked.push(req.body.userId);
-    //             sauce.save()
-    //             .then(() => res.status(200).json({message: 'Ajout du dislike'}))
-    //             .catch(error => res.status(400).json({ error }))
-    //             break;
-    //     }
-    // })
-    // .catch(error => res.status(400).json({ error }))
-
-
-
-    // 1 initialiser tout les champs récup les likes 
-
     const like = req.body.like
     const sauceId = req.params.id
-    const userId = req.body.id
+    const userId = req.body.userId
 
     switch(like){
         case 1 :
@@ -177,7 +98,5 @@ exports.likeSauce = (req, res, next) => {
                 })
             break;    
     }
-
-
 }
 
